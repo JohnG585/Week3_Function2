@@ -117,30 +117,30 @@ document.getElementById("submit2").addEventListener("click", function() {
 //    or from Celsius to Fahrenheit. To keep it simple, instruct them to use "F to C" or "C to F".
 //    Display an error if they do not follow the rules.
 document.getElementById("CorFa").addEventListener("click", function() {
-    prompt("Would you like to convert from Celsius to Fahrenheit or from Fahrenheit to Celsius?\n\nPlease use 'C to F' or 'F to C'.")
-});
-function temperatureCorF(CorFa) {
-  if (CorFa === "C to F") {
+    var answer = prompt("Would you like to convert from Celsius to Fahrenheit or from Fahrenheit to Celsius?\n\nPlease use 'C to F' or 'F to C'.")
+  temperatureCorF(answer);
+function temperatureCorF(answer) {
+  if (answer === "C to F") {
     var CtoF = prompt("Please enter the temperature");
     CtoF = parseFloat(CtoF);
   CtoF *= 1.8;
   CtoF += 32;
   var CtoFValue = CtoF.toFixed(1);
-  return "The temperature in Fahrenheit is "+CtoFValue+" degrees.";
+  var tempAnswer = document.getElementById("q7").innerHTML = "The temperature in Fahrenheit is "+CtoFValue+" degrees.";
   }
-  else if (CorFa === "F to C") {
+  else if (answer === "F to C") {
     var FtoC = prompt("Please enter the temperature");
     FtoC = parseFloat(FtoC);
     FtoC -=32;
     FtoC /=1.8;
     var FtoCValue = FtoC.toFixed(0);
-    return "The temperature in Celsius is "+FtoCValue+" degrees.";
+    var tempAnswer = document.getElementById("q7").innerHTML =  "The temperature in Celsius is "+FtoCValue+" degrees.";
   }
   else {
-    return "That isn't an option"
+    var tempAnswer = document.getElementById("q7").innerHTML = "That isn't an option"
   }
 }
-document.getElementById("q7").innerHTML=temperatureCorF(CorFa.value);
+});
 
 // 8. Write a function countBs() that takes a string as its only argument and returns
 //    a number that indicates how many uppercase “B” characters are in the string.
